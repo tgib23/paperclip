@@ -1,0 +1,43 @@
+<% title "Posts" %>
+
+<p><%= link_to "New Post", new_post_path %></p>
+
+<hr />
+
+<% for post in @posts %>
+	<div class="post">
+
+		<h3><%= link_to post.title, post_path(post) %></h3>
+		<p>
+			<%= post.content %>
+		</p>
+		<p>
+      <%= link_to "Show", post %>
+      <%= link_to "Edit", edit_post_path(post) %>
+      <%= link_to "Destroy", post, :confirm => 'Are you sure?', :method => :delete %>
+
+		</p>
+
+	</div>
+
+  <img id="logo" src="http://www.wings.msn.to/image/wings.jpg" />
+  <script type="text/javascript">
+    $('#logo').click(function() {
+    	$('#logo').fadeOut(3000);
+    });
+  </script>
+<% end %>
+
+<div id='testtest'>
+<a href='#'>Link</a>
+</div>
+<script>
+$('#testtest').bind('click', function() {
+	alert("Unobstrucsive");
+}
+</script>
+
+<a href='#' onclick='alert("inline javascript")'>Link</a>
+<div> 現在時刻: <%= Time.now %></div>
+<div id='result'>現在時刻： <%= Time.now %></div>
+<%= link_to '更新', { :action => 'upanel' }, :remote => true %>
